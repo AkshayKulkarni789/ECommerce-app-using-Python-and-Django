@@ -1,0 +1,13 @@
+{% extends 'base_layout.html' %}
+
+{% block content %}
+
+<h1>{{ request.user }}'s Cart</h1>
+{% for item in carts %}
+<p>Book name: {{ item.book_name }}</p>
+<p>Price: {{ item.book_name.price }}<p>
+{% endfor %}
+
+<a href="{% url 'cart:billing' %}"><button type="submit">Purchase</button></a>
+
+{% endblock %}

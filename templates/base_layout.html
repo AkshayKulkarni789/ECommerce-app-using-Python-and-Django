@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<style type="text/css">
+		body{
+			transition: 2s;
+			height: 100%;
+			background-color: #000099;
+			font-family: 'Arimo', sans-serif;
+			font-color: #999999;
+			}
+
+		img{
+			background-size: cover;
+		    background-position: top;
+		}
+		h1,p{
+			font-family: 'Arimo', sans-serif;
+			font-weight: 700;
+			color: white;
+			text-shadow: 1px 3px rgba(0,0,0,0.5);
+		}
+		a{
+			font-family: 'Arimo', sans-serif;
+			font-weight: 700;
+			color: green;
+			text-shadow: 1px 3px rgba(0,0,0,0.5);
+		}
+		button {
+		  background-color: red;
+		  border: none;
+		  color: white;
+		  padding: 15px 32px;
+		  text-align: center;
+		  text-decoration: none;
+		  display: inline-block;
+		  font-size: 16px;
+		}
+		.button {
+		  background-color: red;
+		  border: none;
+		  color: white;
+		  padding: 15px 32px;
+		  text-align: center;
+		  text-decoration: none;
+		  display: inline-block;
+		  font-size: 16px;
+		}
+		html{
+			height: 100%;
+		}
+		.cart {
+			float:right;
+		}
+	</style>
+</head>
+<body>
+	<p>{{ request.user }}</p>
+	<form action="{% url 'accounts:logout' %}" method="post">
+		{% csrf_token %}
+		<button type="submit">Logout</button>
+	</form>
+	<div class="cart">
+		<form action="{% url 'cart:cartview' %}" method="post">
+			{% csrf_token %}
+			<button type="submit">Cart</button>
+		</form>
+	</div>
+	<center>
+		<div>
+			{% block content %}
+			{% endblock %}
+		</div>
+	</center>
+</body>
+</html>

@@ -1,0 +1,24 @@
+{% extends 'base_layout.html' %}
+
+{% block content %}
+	<h2> List of books </h2>
+	<br><br>
+	{% for book in books %}
+	<div>
+		<table>
+			<td><tr><h3><a href="{% url 'details' slug=book.slug %}">{{ book.title }}</a></h3></tr>
+			<tr><p>By: {{ book.author }}</p></tr>
+			<tr><p>Description: {{ book.snippet }}</p></tr>
+			<tr><p>Price: {{ book.price }} </p></tr></td>
+			</table>
+	</div>
+	{% endfor %}
+	{% if request.user.is_superuser %}
+
+	<form action="books/add/" method="post">
+		{% csrf_token %}
+		<input class="button" type="submit" name="Add Book" value="Add Book">
+	</form>
+
+	{% endif %}
+{% endblock %}

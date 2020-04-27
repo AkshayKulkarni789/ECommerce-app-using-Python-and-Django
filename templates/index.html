@@ -1,0 +1,11 @@
+{% extends 'base_layout2.html' %}
+{% block content %}
+			<h1>Welcome to the Bookshop</h1>
+			<br><br><br>
+			<table>
+				<tr>
+					<td><a href="{% url 'accounts:login' %}"><button>Login</button></a></td>
+					<td><a href="{% url 'accounts:signup' %}"><button>Sign Up</button></a></td>
+				</tr>
+			</table>
+{% endblock %}

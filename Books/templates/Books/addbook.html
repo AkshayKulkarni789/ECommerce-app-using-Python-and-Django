@@ -1,0 +1,12 @@
+{% extends 'base_layout.html' %}
+
+{% block content %}
+
+<h1>Add a new book</h1>
+<form action="/books/add/" method="post">
+	{% csrf_token %}
+	{{ form.as_p }}
+	<input class="button" type="submit" name="Add" value="Add">
+</form>
+
+{% endblock %}

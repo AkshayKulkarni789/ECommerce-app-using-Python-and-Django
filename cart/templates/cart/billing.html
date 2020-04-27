@@ -1,0 +1,13 @@
+{% extends 'base_layout.html' %}
+
+{% block content %}
+
+<h1>{{ request.user }}'s Bill</h1>
+{% for item in carts %}
+<p>Book name: {{ item.book_name }}</p>
+<p>Price: {{ item.book_name.price }}<p>
+{% endfor %}
+<p>Total: {{ totals }}</p>
+<button>Pay Now (Online)</button> <button>Pay Later (CoD)</button>
+
+{% endblock %}
